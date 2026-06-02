@@ -1,0 +1,84 @@
+{
+  "name": "@numiko/scroll-lock",
+  "description": "Scroll Lock",
+  "version": "1.4.2",
+  "type": "module",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org:numiko/scroll-lock.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:ci": "vitest --run --reporter junit --outputFile ./reports/results.xml --coverage.enabled --coverage.include lib --coverage.reporter=html --coverage.reportsDirectory ./reports/",
+    "generate-docs": "typedoc lib/ScrollLock.ts",
+    "deploy-docs": "netlify deploy --dir=docs --alias=v$(node -p \"require('./package.json').version\")",
+    "release": "echo 'Releasing package. Ensure the module is linked to the Netlify project using `netlify link`.'; release-it release"
+  },
+  "main": "./dist/ScrollLock.umd.js",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/ScrollLock.d.ts",
+      "import": "./dist/ScrollLock.es.js",
+      "require": "./dist/ScrollLock.umd.js"
+    }
+  },
+  "devDependencies": {
+    "@j-ulrich/release-it-regex-bumper": "^5.3.0",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@types/node": "^24.7.2",
+    "@vitest/coverage-v8": "^2.1.3",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "happy-dom": "^15.7.4",
+    "netlify-cli": "^23.9.1",
+    "release-it": "^19.0.5",
+    "typedoc": "^0.28.14",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0",
+    "vite": "^5.2.12",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^2.1.3"
+  },
+  "release-it": {
+    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+    "plugins": {
+      "@j-ulrich/release-it-regex-bumper": {
+        "out": [
+          {
+            "file": "README.md",
+            "search": "\\d+-\\d+-\\d+",
+            "replace": "{{major}}-{{minor}}-{{patch}}"
+          }
+        ]
+      }
+    },
+    "npm": {
+      "publish": true,
+      "publishArgs": [
+        "--access",
+        "public"
+      ]
+    },
+    "hooks": {
+      "before:init": [
+        "vitest run"
+      ],
+      "after:bump": [
+        "npm run generate-docs",
+        "npm run build",
+        "npm run deploy-docs"
+      ]
+    }
+  }
+}
