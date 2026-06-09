@@ -7,7 +7,7 @@ A lightweight utility to lock and unlock page scrolling. Prevents background scr
 - Lock and unlock page scrolling programmatically
 - Preserves scroll position when unlocking
 - Supports custom scroll containers (defaults to `document.body`)
-- Uses Tailwind CSS utility classes for scroll locking
+- Uses plain CSS styles for scroll locking
 - Lightweight with zero dependencies
 
 ## Installation
