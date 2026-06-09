@@ -1,33 +1,35 @@
-interface ScrollLock {
-  disableScroll: () => void;
-  enableScroll: () => void;
-  getIsLocked: () => boolean;
-}
+export function scrollLock(scrollBody: HTMLElement = document.body) {
+  let scrollPosition = 0;
+  let isLocked = false;
 
-export function scrollLock(scrollBody: HTMLElement = document.body): ScrollLock {
-  let scrollPosition: number = 0;
-  let isLocked: boolean = false;
-
-  function disableScroll(): void {
+  function disableScroll() {
     if (isLocked || !scrollBody) return;
     isLocked = true;
 
     scrollPosition = window.scrollY;
 
     scrollBody.style.top = `-${scrollPosition}px`;
-    scrollBody.classList.add('overflow-hidden', 'fixed', 'inset-0');
+    scrollBody.style.overflow = 'hidden';
+    scrollBody.style.position = 'fixed';
+    scrollBody.style.right = '0';
+    scrollBody.style.bottom = '0';
+    scrollBody.style.left = '0';
   }
 
-  function enableScroll(): void {
+  function enableScroll() {
     if (!isLocked || !scrollBody) return;
     isLocked = false;
 
-    scrollBody.style.top = '';
-    scrollBody.classList.remove('overflow-hidden', 'fixed', 'inset-0');
+    scrollBody.style.overflow = '';
+    scrollBody.style.position = '';
+    scrollBody.style.right = '';
+    scrollBody.style.bottom = '';
+    scrollBody.style.left = '';
+
     window.scrollTo({ top: scrollPosition, behavior: 'instant' });
   }
 
-  function getIsLocked(): boolean {
+  function getIsLocked() {
     return isLocked;
   }
 
