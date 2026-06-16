@@ -1,5 +1,12 @@
-import { ScrollLock } from '../lib/ScrollLock';
+import { scrollLock } from '../lib/ScrollLock';
+const bodyScrollLock = scrollLock();
+const scrollLockButton = document.querySelector('[data-js-scroll-lock]');
+const scrollUnlockButton = document.querySelector('[data-js-scroll-unlock]');
 
-new ScrollLock({
-  author: 'John Doe',
+scrollLockButton?.addEventListener('click', () => {
+  bodyScrollLock.disableScroll();
+});
+
+scrollUnlockButton?.addEventListener('click', () => {
+  bodyScrollLock.enableScroll();
 });

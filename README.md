@@ -1,19 +1,46 @@
-# Package Name
+# Scroll Lock
 
-A brief example of the package and its purpose.
+A lightweight utility to lock and unlock page scrolling. Prevents background scroll when modals, drawers, or overlays are open, while preserving the user's scroll position.
 
 ## Features
 
-A list of the most important features provided by the package.
+- Lock and unlock page scrolling programmatically
+- Preserves scroll position when unlocking
+- Supports custom scroll containers (defaults to `document.body`)
+- Uses plain CSS styles for scroll locking
+- Lightweight with zero dependencies
 
 ## Installation
 
-Instructions on how to install the package. Where possible, the module should be hosted and installed
-from the NPM library.
+```bash
+
+# NOT YET ON NPM
+npm install @numiko/scroll-lock
+```
 
 ## Usage
 
-An example of how to use the package. This may include both JavaScript and HTML.
+```javascript
+import { scrollLock } from '@numiko/scroll-lock';
+
+// Create a scroll lock instance (defaults to document.body)
+const lock = scrollLock();
+
+// Disable scrolling
+lock.disableScroll();
+
+// Enable scrolling (restores previous scroll position)
+lock.enableScroll();
+
+// Check if scrolling is currently locked
+lock.getIsLocked(); // true or false
+```
+
+You can also pass a custom element to lock scrolling on:
+
+```javascript
+const customLock = scrollLock(document.querySelector('[data-js-lock-container]'));
+```
 
 ## API
 IMPORTANT!
