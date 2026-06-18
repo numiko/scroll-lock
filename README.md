@@ -41,4 +41,4 @@ const customLock = scrollLock(document.querySelector('[data-js-lock-container]')
 ```
 
 ## API
-See [documentation](https://v1-4-2--numiko-scroll-lock.netlify.app/) for more detail on how to use the package.
+See [documentation](https://v1-4-3--numiko-scroll-lock.netlify.app/) for more detail on how to use the package.
