@@ -23,8 +23,11 @@ describe('scroll body', () => {
     const customLock = scrollLock(customEl);
     customLock.disableScroll();
 
-    expect(customEl.style.position).toBe('fixed');
     expect(customEl.style.overflow).toBe('hidden');
+    expect(customEl.style.position).toBe('fixed');
+    expect(customEl.style.right).toBe('0px');
+    expect(customEl.style.bottom).toBe('0px');
+    expect(customEl.style.left).toBe('0px');
 
     customLock.enableScroll();
   });
