@@ -19,6 +19,9 @@ dist/
 # Package files
 *.jar
 
+# Ignore docs
+docs/
+
 # Maven
 target/
 dist/
@@ -48,3 +51,5 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Local Netlify folder
+.netlify

@@ -43,10 +43,4 @@ const customLock = scrollLock(document.querySelector('[data-js-lock-container]')
 ```
 
 ## API
-IMPORTANT!
-
-Link the API section to the hosted documentation on Netlify. You should have received the URL when creating the site using `netlify sites:create`.
-
-See [documentation](https://v0-0-0--[NETLIFY_URL].netlify.app) for more detail on how to use the package.
-
-You will only need to add the URL manually the first time. On releases, `release-it` will handle updating this URL, so long as it includes the version in the format `x-x-x`. To
+See [documentation](https://v1-4-2--numiko-scroll-lock.netlify.app/) for more detail on how to use the package.
