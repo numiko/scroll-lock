@@ -13,8 +13,6 @@ A lightweight utility to lock and unlock page scrolling. Prevents background scr
 ## Installation
 
 ```bash
-
-# NOT YET ON NPM
 npm install @numiko/scroll-lock
 ```
 
