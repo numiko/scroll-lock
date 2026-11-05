@@ -1,7 +1,7 @@
 {
   "name": "@numiko/scroll-lock",
   "description": "Scroll Lock",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "type": "module",
   "engines": {
     "node": ">=26.12.1"
