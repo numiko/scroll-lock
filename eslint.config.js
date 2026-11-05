@@ -26,6 +26,7 @@ export default [
     rules: {
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-undef': 'warn',
+      // Base rule misreports TS-only constructs; replaced by @typescript-eslint/no-unused-vars below
       'no-unused-vars': 'off',
       'no-shadow': 'warn',
       '@stylistic/semi': ['warn', 'always'],

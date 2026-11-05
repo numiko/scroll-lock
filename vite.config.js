@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [
     eslint(),
     dts({
+      tsconfigPath: './tsconfig.dts.json',
+      entryRoot: 'lib',
       outDir: 'dist',
       rollupTypes: true
     })
@@ -25,7 +27,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'lib/ScrollLock.ts'),
+      entry: path.resolve(import.meta.dirname, 'lib/ScrollLock.ts'),
       name: 'ScrollLock',
       fileName: (format) => `ScrollLock.${format}.js`
     },
