@@ -41,7 +41,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@j-ulrich/release-it-regex-bumper": "^5.6.0",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@types/node": "^26.2.0",
