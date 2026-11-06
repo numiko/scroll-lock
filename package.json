@@ -7,9 +7,14 @@
     "node": ">=26.12.1"
   },
   "private": false,
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:numiko/scroll-lock.git"
+    "url": "git+https://github.com/numiko/scroll-lock.git"
+  },
+  "homepage": "https://github.com/numiko/scroll-lock#readme",
+  "bugs": {
+    "url": "https://github.com/numiko/scroll-lock/issues"
   },
   "scripts": {
     "dev": "vite",
