@@ -1,0 +1,35 @@
+version: 2.1
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - build-and-test
+
+jobs:
+  build-and-test:
+    machine:
+      image: ubuntu-2404:2026.05.1
+    resource_class: medium
+
+    steps:
+      - checkout
+      - run:
+          name: Build frontend
+          command: |
+            # Source CircleCI's instance of nvm
+            source /opt/circleci/.nvm/nvm.sh
+
+            nvm install
+            nvm use
+            npm clean-install
+            npm run build
+      - run:
+          name: Run JavaScript tests
+          command: |
+            nvm use
+            npm run test:ci
+      - store_test_results:
+          path: reports/
+      - store_artifacts:
+          path: reports/
