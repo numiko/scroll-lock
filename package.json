@@ -57,7 +57,7 @@
     "vite": "^8.2.1",
     "vite-plugin-dts": "^5.1.2",
     "vite-plugin-eslint": "^1.8.1",
-    "vitest": "^4.1.12"
+    "vitest": "^5.0.5"
   },
   "release-it": {
     "$schema": "https://unpkg.com/release-it/schema/release-it.json",
