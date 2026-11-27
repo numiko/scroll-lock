@@ -51,3 +51,6 @@ Thumbs.db
 
 # Testing artefacts
 /reports/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
